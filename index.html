@@ -26,22 +26,66 @@ footer{padding:22px 7%;display:flex;justify-content:space-between;gap:12px;flex-
 </style>
 </head>
 <body>
-<header class="topbar"><div class="brand">¿Qué Hay Para Cenar?</div><nav><a href="#menu">Menú</a><a href="#nosotros">Nuestra cocina</a><a href="#visitanos">Visítanos</a></nav></header>
+<header class="topbar">
+  <div class="brand">¿Qué Hay Para Cenar?</div>
+  <nav><a href="#menu">Menú</a><a href="#nosotros">Nuestra cocina</a><a href="#visitanos">Visítanos</a></nav>
+</header>
 <main>
-<section class="hero"><div class="hero-inner"><div class="eyebrow">Comida rica · buenos momentos</div><h1>Un poquito de <span>hogar</span> en cada plato.</h1><p>De un desayuno que te llena de energía a una pizza para compartir. Pasa, siéntate y disfruta.</p><a class="button" href="#menu">Explora el menú</a></div></section>
-<section id="menu"><div class="section-head"><div class="eyebrow">Hecho para disfrutar</div><h2>Algo delicioso te espera.</h2><p>Nuestro menú reúne clásicos reconfortantes y favoritos de la casa.</p></div>
-<div class="menu-tabs" role="tablist" aria-label="Secciones del menú"><button class="tab active" data-filter="breakfast" role="tab" aria-selected="true">Desayuno</button><button class="tab" data-filter="lunch" role="tab" aria-selected="false">Almuerzo</button><button class="tab" data-filter="dinner" role="tab" aria-selected="false">Cena</button></div>
-<div class="menu-grid">
-<article class="dish" data-category="breakfast"><span class="tag">Desayuno</span><h3>El Hombre Hambriento</h3><p>Dos huevos, pan tostado (blanco o integral), picadillo de papas y tocino.</p></article>
-<article class="dish" data-category="breakfast"><span class="tag">Desayuno</span><h3>Pequeño</h3><p>Dos panqueques, pan tostado y tocino.</p></article>
-<article class="dish" data-category="breakfast"><span class="tag">Selección del chef</span><h3>Bistec New York Strip</h3><p>Bistec New York Strip de 12 oz, dos huevos, picadillo de papas y pan tostado.</p></article>
-<article class="dish" data-category="breakfast"><span class="tag">Desayuno</span><h3>La Deliciosa</h3><p>Tortilla española.</p></article><article class="dish" data-category="breakfast"><span class="tag">Desayuno</span><h3>Humilde</h3><p>Pan con tomate.</p></article>
-<article class="dish" data-category="lunch"><span class="tag">Almuerzo</span><h3>Un Sabor a Hogar</h3><p>Pizza al estilo de Nueva York, horneada en horno de ladrillo. El borrador del menú menciona queso, pepperoni, salchichón y champiñones; también pollo, tocino y ranch, y pollo a la barbacoa.</p></article>
-<article class="dish" data-category="lunch"><span class="tag">Almuerzo</span><h3>El Paraíso de Shaggy</h3><p>Sándwich tipo Subway de tres pisos.</p></article>
-<article class="dish hidden" data-category="dinner"><span class="tag">Cena</span><h3>La cena está por venir</h3><p>Estamos preparando esta parte del menú. ¡Vuelve pronto!</p></article>
-</div><p class="note">Los platos y descripciones se transcribieron del borrador manuscrito. La sección de cena todavía no tenía platos escritos.</p></section>
-<section class="story" id="nosotros"><div class="story-inner"><div><div class="eyebrow">Nuestra cocina</div><h2>Sabores sencillos. Momentos especiales.</h2><p>En ¿Qué Hay Para Cenar? creemos que una buena comida sabe mejor cuando se comparte. Ven con hambre y quédate por el buen ambiente.</p></div><div class="stamp"><strong>¡Buen provecho!</strong><span>Preparado con cariño</span></div></div></section>
-<section class="visit" id="visitanos"><div class="section-head"><div class="eyebrow">Aquí te esperamos</div><h2>Ven a comer con nosotros.</h2><p>Los datos de contacto que aparecen aquí son ficticios, solo para la maqueta del sitio.</p></div><div class="visit-details"><div><strong>Dirección ficticia</strong>123 Sabor Street<br>Torrington, CT 06790</div><div><strong>Teléfono ficticio</strong>(860) 555-0147</div><div><strong>Correo de ejemplo</strong>hola@quehayparacenar.example</div></div><a class="button" href="tel:+18605550147">Llámanos</a></section>
-</main><footer><span>© 2026 ¿Qué Hay Para Cenar?</span><span>Una maqueta de sitio web · Datos de contacto ficticios</span></footer>
-<script>const tabs=[...document.querySelectorAll('.tab')],dishes=[...document.querySelectorAll('.dish')];tabs.forEach(tab=>tab.addEventListener('click',()=>{const filter=tab.dataset.filter;tabs.forEach(t=>{const on=t===tab;t.classList.toggle('active',on);t.setAttribute('aria-selected',String(on));});dishes.forEach(d=>d.classList.toggle('hidden',d.dataset.category!==filter));}));</script>
-</body></html>
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="eyebrow">Comida rica · buenos momentos</div>
+      <h1>Un poquito de <span>hogar</span> en cada plato.</h1>
+      <p>De un desayuno que te llena de energía a una pizza para compartir. Pasa, siéntate y disfruta.</p>
+      <a class="button" href="#menu">Explora el menú</a>
+    </div>
+  </section>
+  <section id="menu">
+    <div class="section-head">
+      <div class="eyebrow">Hecho para disfrutar</div>
+      <h2>Algo delicioso te espera.</h2>
+      <p>Nuestro menú reúne clásicos reconfortantes y favoritos de la casa.</p>
+    </div>
+    <div class="menu-tabs" role="tablist" aria-label="Secciones del menú">
+      <button class="tab active" data-filter="breakfast" role="tab" aria-selected="true">Desayuno</button>
+      <button class="tab" data-filter="lunch" role="tab" aria-selected="false">Almuerzo</button>
+      <button class="tab" data-filter="dinner" role="tab" aria-selected="false">Cena</button>
+    </div>
+    <div class="menu-grid">
+      <article class="dish" data-category="breakfast"><span class="tag">Desayuno</span><h3>El Hombre Hambriento</h3><p>Dos huevos, pan tostado (blanco o integral), picadillo de papas y tocino.</p></article>
+      <article class="dish" data-category="breakfast"><span class="tag">Desayuno</span><h3>Pequeño</h3><p>Dos panqueques, pan tostado y tocino.</p></article>
+      <article class="dish" data-category="breakfast"><span class="tag">Selección del chef</span><h3>Bistec New York Strip</h3><p>Bistec New York Strip de 12 oz, dos huevos, picadillo de papas y pan tostado.</p></article>
+      <article class="dish" data-category="breakfast"><span class="tag">Desayuno</span><h3>La Deliciosa</h3><p>Tortilla española.</p></article>
+      <article class="dish" data-category="breakfast"><span class="tag">Desayuno</span><h3>Humilde</h3><p>Pan con tomate.</p></article>
+      <article class="dish" data-category="lunch"><span class="tag">Almuerzo</span><h3>Un Sabor a Hogar</h3><p>Pizza al estilo de Nueva York, horneada en horno de ladrillo. El borrador del menú menciona queso, pepperoni, salchichón y champiñones; también pollo, tocino y ranch, y pollo a la barbacoa.</p></article>
+      <article class="dish" data-category="lunch"><span class="tag">Almuerzo</span><h3>El Paraíso de Shaggy</h3><p>Sándwich tipo Subway de tres pisos.</p></article>
+      <article class="dish hidden" data-category="dinner"><span class="tag">Cena</span><h3>La cena está por venir</h3><p>Estamos preparando esta parte del menú. ¡Vuelve pronto!</p></article>
+    </div>
+    <p class="note">Los platos y descripciones se transcribieron del borrador manuscrito. La sección de cena todavía no tenía platos escritos.</p>
+  </section>
+  <section class="story" id="nosotros">
+    <div class="story-inner">
+      <div><div class="eyebrow">Nuestra cocina</div><h2>Sabores sencillos. Momentos especiales.</h2><p>En ¿Qué Hay Para Cenar? creemos que una buena comida sabe mejor cuando se comparte. Ven con hambre y quédate por el buen ambiente.</p></div>
+      <div class="stamp"><strong>¡Buen provecho!</strong><span>Preparado con cariño</span></div>
+    </div>
+  </section>
+  <section class="visit" id="visitanos">
+    <div class="section-head"><div class="eyebrow">Aquí te esperamos</div><h2>Ven a comer con nosotros.</h2></div>
+    <div class="visit-details">
+      <div><strong>Dirección ficticia</strong>123 Sabor Street<br>Torrington, CT 06790</div>
+      <div><strong>Teléfono</strong>(860) 555-0147</div>
+      <div><strong>Correo electrónico</strong>info@quehayparacenar.com</div>
+    </div>
+    <a class="button" href="tel:+18605550147">Llámanos</a>
+  </section>
+</main>
+<footer><span>© 2026 ¿Qué Hay Para Cenar?</span><span>Una maqueta de sitio web</span></footer>
+<script>
+const tabs=[...document.querySelectorAll('.tab')], dishes=[...document.querySelectorAll('.dish')];
+tabs.forEach(tab=>tab.addEventListener('click',()=>{
+  const filter=tab.dataset.filter;
+  tabs.forEach(t=>{const on=t===tab;t.classList.toggle('active',on);t.setAttribute('aria-selected',String(on));});
+  dishes.forEach(d=>d.classList.toggle('hidden',d.dataset.category!==filter));
+}));
+</script>
+</body>
+</html>
