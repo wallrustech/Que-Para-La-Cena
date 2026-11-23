@@ -19,7 +19,7 @@ h1{font-size:clamp(3.2rem,8vw,6.5rem);line-height:.94;margin:18px 0 24px;max-wid
 section{padding:76px 8%}.section-head{text-align:center;margin:0 auto 38px;max-width:650px}.section-head .eyebrow{color:var(--tomato)}h2{font-size:clamp(2.2rem,5vw,3.4rem);margin:12px 0}.section-head p{color:var(--muted);font:1rem/1.6 Arial,sans-serif}
 .menu-tabs{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:30px 0 34px}.tab{border:1px solid #c9c0af;background:transparent;color:var(--ink);padding:12px 20px;cursor:pointer;font:700 .8rem Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase}.tab.active,.tab:hover{background:var(--ink);color:white;border-color:var(--ink)}
 .menu-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;max-width:1000px;margin:auto}.dish{background:var(--paper);padding:27px 29px;border-top:3px solid var(--gold);box-shadow:0 8px 25px #2a25130b}.dish h3{font-size:1.5rem;margin:0 0 10px}.dish p{font: .97rem/1.65 Arial,sans-serif;color:#65685e;margin:0}.dish .tag{display:inline-block;margin-bottom:10px;color:var(--tomato);font:700 .7rem Arial,sans-serif;text-transform:uppercase;letter-spacing:.13em}.note{max-width:1000px;margin:22px auto 0;color:#777;font: .82rem/1.5 Arial,sans-serif}
-.hidden{display:none}.story{background:#eae1d1}.story-inner{max-width:900px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}.story h2{margin-top:8px}.story p{font:1.05rem/1.8 Arial,sans-serif;color:#555d53}.stamp{border:1px solid var(--gold);padding:42px;text-align:center;transform:rotate(-2deg);background:var(--paper)}.stamp strong{display:block;font-size:2.5rem;color:var(--tomato)}.stamp span{font:700 .8rem Arial,sans-serif;letter-spacing:.15em;text-transform:uppercase}
+.dish img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:2px;margin-top:18px;background:#eee}.hidden{display:none}.story{background:#eae1d1}.story-inner{max-width:900px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}.story h2{margin-top:8px}.story p{font:1.05rem/1.8 Arial,sans-serif;color:#555d53}.stamp{border:1px solid var(--gold);padding:42px;text-align:center;transform:rotate(-2deg);background:var(--paper)}.stamp strong{display:block;font-size:2.5rem;color:var(--tomato)}.stamp span{font:700 .8rem Arial,sans-serif;letter-spacing:.15em;text-transform:uppercase}
 .visit{background:var(--ink);color:var(--cream);text-align:center}.visit .section-head p{color:#d1d4ca}.visit-details{display:flex;justify-content:center;gap:55px;flex-wrap:wrap;margin-top:35px;font:1rem/1.7 Arial,sans-serif}.visit-details strong{display:block;color:#f0c66c;text-transform:uppercase;font-size:.75rem;letter-spacing:.15em;margin-bottom:7px}.visit a{color:#f0c66c}
 footer{padding:22px 7%;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;background:#101a14;color:#bfc6ba;font: .78rem Arial,sans-serif}
 @media(max-width:700px){.topbar{padding:16px 5%}.topbar nav{display:none}.hero{min-height:500px;padding:75px 7%}.menu-grid,.story-inner{grid-template-columns:1fr}section{padding:60px 6%}.story-inner{gap:25px}.stamp{padding:28px}}
@@ -108,6 +108,46 @@ footer{padding:22px 7%;display:flex;justify-content:space-between;gap:12px;flex-
 <footer><span>© 2026 ¿Qué Hay Para Cenar?</span><span>Sitio web en preparación</span></footer>
 <script>
 const tabs=[...document.querySelectorAll('.tab')], dishes=[...document.querySelectorAll('.dish')];
+
+const foodImages = {
+  "El Hombre Hambriento": ["https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=1000&q=85", "Desayuno con huevos, tocino, pan tostado y papas"],
+  "Pequeño": ["https://images.unsplash.com/photo-1528207776546-365bb710ee93?auto=format&fit=crop&w=1000&q=85", "Panqueques dorados"],
+  "Bistec de tira estilo Nueva York": ["https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1000&q=85", "Bistec a la parrilla"],
+  "La Deliciosa": ["https://images.unsplash.com/photo-1513442542250-854d436a73f2?auto=format&fit=crop&w=1000&q=85", "Tortilla española"],
+  "Humilde": ["https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1000&q=85", "Pan rústico con tomate"],
+  "Un Sabor a Hogar": ["https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1000&q=85", "Pizza recién horneada"],
+  "El Paraíso de Shaggy": ["https://images.unsplash.com/photo-1553909489-cd47e0ef937f?auto=format&fit=crop&w=1000&q=85", "Sándwich submarino"],
+  "Quesadilla de Pollo": ["https://images.unsplash.com/photo-1618040996337-56904b7850b9?auto=format&fit=crop&w=1000&q=85", "Quesadilla de pollo"],
+  "Sándwich Cubano": ["https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=1000&q=85", "Sándwich cubano prensado"],
+  "Ensalada César con Pollo": ["https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1000&q=85", "Ensalada César con pollo"],
+  "Sopa del Día": ["https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1000&q=85", "Sopa casera del día"],
+  "Hamburguesa de la Casa": ["https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=1000&q=85", "Hamburguesa de la casa"],
+  "Nachos Supremos": ["https://images.unsplash.com/photo-1513456852971-30c0b8199d4d?auto=format&fit=crop&w=1000&q=85", "Nachos con queso y guacamole"],
+  "Costilla de Res Asada": ["https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1000&q=85", "Costilla de res asada lentamente"],
+  "Paella de Pollo": ["https://images.unsplash.com/photo-1534080564583-6be75777b70a?auto=format&fit=crop&w=1000&q=85", "Paella española de pollo"],
+  "Tacos de Carne Asada": ["https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?auto=format&fit=crop&w=1000&q=85", "Tacos de carne asada"],
+  "Tacos de Pollo Asado": ["https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=1000&q=85", "Tacos de pollo"],
+  "Tacos de Carnitas": ["https://images.unsplash.com/photo-1552332386-f8dd00dc2f85?auto=format&fit=crop&w=1000&q=85", "Tacos de carnitas"],
+  "Tacos al Pastor": ["https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=1000&q=85", "Tacos al pastor con piña"],
+  "Tacos de Pescado": ["https://images.unsplash.com/photo-1512838243191-e81e8f66f1fd?auto=format&fit=crop&w=1000&q=85", "Tacos de pescado"],
+  "Arma Tus Propios Tacos": ["https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?auto=format&fit=crop&w=1000&q=85", "Variedad de ingredientes para tacos"],
+  "Flan de Caramelo": ["https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1000&q=85", "Flan de caramelo"],
+  "Arroz con Leche": ["https://images.unsplash.com/photo-1570197788417-0e82375c9371?auto=format&fit=crop&w=1000&q=85", "Arroz con leche y canela"],
+  "Pastel Tres Leches": ["https://images.unsplash.com/photo-1562007908-17c67e878c39?auto=format&fit=crop&w=1000&q=85", "Pastel tres leches"],
+  "Chocoflan": ["https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=1000&q=85", "Pastel de chocolate y flan"]
+};
+dishes.forEach(dish=>{
+  const title=dish.querySelector("h3")?.textContent.trim();
+  const item=foodImages[title];
+  if(!item) return;
+  const img=document.createElement("img");
+  img.src=item[0];
+  img.alt=item[1];
+  img.loading="lazy";
+  img.decoding="async";
+  dish.appendChild(img);
+});
+
 tabs.forEach(tab=>tab.addEventListener('click',()=>{
   const filter=tab.dataset.filter;
   tabs.forEach(t=>{const on=t===tab;t.classList.toggle('active',on);t.setAttribute('aria-selected',String(on));});
