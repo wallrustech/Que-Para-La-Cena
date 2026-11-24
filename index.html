@@ -149,13 +149,13 @@ const pricesMXN = {
   "Horchata":55, "Agua de Jamaica":45, "Coca-Cola Mexicana":55, "Helado Flotante de Cerveza de Raíz":75,
   "Malteada de Fresa":85, "Malteada de Chocolate":85, "Malteada de Vainilla":85, "Leche con Chocolate":40, "Clásicos de siempre":40
 };
-const mxn = new Intl.NumberFormat("es-MX",{style:"currency",currency:"MXN",maximumFractionDigits:0});
+const mxn = new Intl.NumberFormat("es-MX",{minimumFractionDigits:0,maximumFractionDigits:0});
 dishes.forEach(dish=>{
   const title=dish.querySelector("h3")?.childNodes[0]?.textContent.trim();
   if(pricesMXN[title]===undefined) return;
   const price=document.createElement("span");
   price.className="price";
-  price.textContent=mxn.format(pricesMXN[title]);
+  price.textContent="$"+mxn.format(pricesMXN[title])+" MXN";
   dish.querySelector("h3").appendChild(price);
 });
 
