@@ -18,7 +18,7 @@ h1{font-size:clamp(3.2rem,8vw,6.5rem);line-height:.94;margin:18px 0 24px;max-wid
 .button{display:inline-block;margin-top:18px;padding:15px 23px;background:var(--tomato);color:white;text-decoration:none;font:700 .85rem Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;border-radius:2px}
 section{padding:76px 8%}.section-head{text-align:center;margin:0 auto 38px;max-width:650px}.section-head .eyebrow{color:var(--tomato)}h2{font-size:clamp(2.2rem,5vw,3.4rem);margin:12px 0}.section-head p{color:var(--muted);font:1rem/1.6 Arial,sans-serif}
 .menu-tabs{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:30px 0 34px}.tab{border:1px solid #c9c0af;background:transparent;color:var(--ink);padding:12px 20px;cursor:pointer;font:700 .8rem Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase}.tab.active,.tab:hover{background:var(--ink);color:white;border-color:var(--ink)}
-.menu-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;max-width:1000px;margin:auto}.dish{background:var(--paper);padding:27px 29px;border-top:3px solid var(--gold);box-shadow:0 8px 25px #2a25130b}.dish h3{font-size:1.5rem;margin:0 0 10px}.dish p{font: .97rem/1.65 Arial,sans-serif;color:#65685e;margin:0}.dish .tag{display:inline-block;margin-bottom:10px;color:var(--tomato);font:700 .7rem Arial,sans-serif;text-transform:uppercase;letter-spacing:.13em}.note{max-width:1000px;margin:22px auto 0;color:#777;font: .82rem/1.5 Arial,sans-serif}
+.menu-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;max-width:1000px;margin:auto}.dish{background:var(--paper);padding:27px 29px;border-top:3px solid var(--gold);box-shadow:0 8px 25px #2a25130b}.dish h3{font-size:1.5rem;margin:0 0 10px;display:flex;justify-content:space-between;align-items:flex-start;gap:12px}.dish h3 .price{white-space:nowrap;color:var(--tomato);font:700 1rem Arial,sans-serif;padding-top:5px}.dish p{font: .97rem/1.65 Arial,sans-serif;color:#65685e;margin:0}.dish .tag{display:inline-block;margin-bottom:10px;color:var(--tomato);font:700 .7rem Arial,sans-serif;text-transform:uppercase;letter-spacing:.13em}.note{max-width:1000px;margin:22px auto 0;color:#777;font: .82rem/1.5 Arial,sans-serif}
 .dish img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:2px;margin-top:18px;background:#eee}.hidden{display:none}.story{background:#eae1d1}.story-inner{max-width:900px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}.story h2{margin-top:8px}.story p{font:1.05rem/1.8 Arial,sans-serif;color:#555d53}.stamp{border:1px solid var(--gold);padding:42px;text-align:center;transform:rotate(-2deg);background:var(--paper)}.stamp strong{display:block;font-size:2.5rem;color:var(--tomato)}.stamp span{font:700 .8rem Arial,sans-serif;letter-spacing:.15em;text-transform:uppercase}
 .visit{background:var(--ink);color:var(--cream);text-align:center}.visit .section-head p{color:#d1d4ca}.visit-details{display:flex;justify-content:center;gap:55px;flex-wrap:wrap;margin-top:35px;font:1rem/1.7 Arial,sans-serif}.visit-details strong{display:block;color:#f0c66c;text-transform:uppercase;font-size:.75rem;letter-spacing:.15em;margin-bottom:7px}.visit a{color:#f0c66c}
 footer{padding:22px 7%;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;background:#101a14;color:#bfc6ba;font: .78rem Arial,sans-serif}
@@ -43,7 +43,7 @@ footer{padding:22px 7%;display:flex;justify-content:space-between;gap:12px;flex-
     <div class="section-head">
       <div class="eyebrow">Hecho para disfrutar</div>
       <h2>Algo delicioso te espera.</h2>
-      <p>Nuestro menú reúne clásicos reconfortantes y favoritos de la casa.</p>
+      <p>Nuestro menú reúne clásicos reconfortantes y favoritos de la casa. <strong>Todos los precios están en pesos mexicanos (MXN).</strong></p>
     </div>
     <div class="menu-tabs" role="tablist" aria-label="Secciones del menú">
       <button class="tab active" data-filter="breakfast" role="tab" aria-selected="true">Desayuno</button>
@@ -78,6 +78,7 @@ footer{padding:22px 7%;display:flex;justify-content:space-between;gap:12px;flex-
       <article class="dish hidden" data-category="dessert"><span class="tag">Postres tradicionales</span><h3>Arroz con Leche</h3><p>Arroz cocido lentamente en leche con canela, azúcar y un toque de vainilla. Servido frío o caliente.</p></article>
       <article class="dish hidden" data-category="dessert"><span class="tag">Favorito de la casa</span><h3>Pastel Tres Leches</h3><p>Bizcocho esponjoso bañado en tres tipos de leche, cubierto con crema batida y un toque de canela.</p></article>
       <article class="dish hidden" data-category="dessert"><span class="tag">Especialidad mexicana</span><h3>Chocoflan</h3><p>Delicioso pastel de chocolate combinado con flan de vainilla y cubierto con caramelo casero.</p></article>
+      <article class="dish hidden" data-category="dessert"><span class="tag">Recién hecho</span><h3>Churros con Cajeta</h3><p>Churros dorados, espolvoreados con azúcar y canela, servidos calientes con cajeta cremosa para acompañar.</p></article>
       <article class="dish hidden" data-category="drinks"><span class="tag">Bebida tradicional</span><h3>Horchata</h3><p>Bebida refrescante de arroz con canela y vainilla, cremosa y ligeramente dulce.</p></article>
       <article class="dish hidden" data-category="drinks"><span class="tag">Bebida tradicional</span><h3>Agua de Jamaica</h3><p>Infusión tradicional de flor de jamaica, ligeramente endulzada y servida bien fría.</p></article>
       <article class="dish hidden" data-category="drinks"><span class="tag">Clásico mexicano</span><h3>Coca-Cola Mexicana</h3><p>Coca-Cola clásica, servida bien fría en su botella de vidrio.</p></article>
@@ -133,9 +134,31 @@ const foodImages = {
   "Arma Tus Propios Tacos": ["https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?auto=format&fit=crop&w=1000&q=85", "Variedad de ingredientes para tacos"],
   "Flan de Caramelo": ["https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1000&q=85", "Flan de caramelo"],
   "Arroz con Leche": ["https://images.unsplash.com/photo-1570197788417-0e82375c9371?auto=format&fit=crop&w=1000&q=85", "Arroz con leche y canela"],
-  "Pastel Tres Leches": ["https://images.unsplash.com/photo-1562007908-17c67e878c39?auto=format&fit=crop&w=1000&q=85", "Pastel tres leches"],
-  "Chocoflan": ["https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=1000&q=85", "Pastel de chocolate y flan"]
+  "Pastel Tres Leches": ["https://snapcalorie-webflow-website.s3.us-east-2.amazonaws.com/media/food_pics_v2/medium/slice_of_tre_leche_cake.jpg", "Rebanada de pastel tres leches con crema batida y fresa"],
+  "Chocoflan": ["https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=1000&q=85", "Pastel de chocolate y flan"],
+  "Churros con Cajeta": ["https://images.pexels.com/photos/9501467/pexels-photo-9501467.jpeg?auto=compress&dpr=1&h=750&w=1260", "Churros con salsas de chocolate y cajeta"]
 };
+
+const pricesMXN = {
+  "El Hombre Hambriento":145, "Pequeño":115, "Bistec de tira estilo Nueva York":285, "La Deliciosa":125, "Humilde":75,
+  "Un Sabor a Hogar":220, "El Paraíso de Shaggy":185, "Quesadilla de Pollo":155, "Sándwich Cubano":185,
+  "Ensalada César con Pollo":165, "Sopa del Día":95, "Hamburguesa de la Casa":195, "Nachos Supremos":175,
+  "Costilla de Res Asada":345, "Paella de Pollo":245, "Tacos de Carne Asada":165, "Tacos de Pollo Asado":145,
+  "Tacos de Carnitas":155, "Tacos al Pastor":155, "Tacos de Pescado":175, "Arma Tus Propios Tacos":185,
+  "Flan de Caramelo":89, "Arroz con Leche":79, "Pastel Tres Leches":99, "Chocoflan":105, "Churros con Cajeta":95,
+  "Horchata":55, "Agua de Jamaica":45, "Coca-Cola Mexicana":55, "Helado Flotante de Cerveza de Raíz":75,
+  "Malteada de Fresa":85, "Malteada de Chocolate":85, "Malteada de Vainilla":85, "Leche con Chocolate":40, "Clásicos de siempre":40
+};
+const mxn = new Intl.NumberFormat("es-MX",{style:"currency",currency:"MXN",maximumFractionDigits:0});
+dishes.forEach(dish=>{
+  const title=dish.querySelector("h3")?.textContent.trim();
+  if(pricesMXN[title]===undefined) return;
+  const price=document.createElement("span");
+  price.className="price";
+  price.textContent=mxn.format(pricesMXN[title]);
+  dish.querySelector("h3").appendChild(price);
+});
+
 dishes.forEach(dish=>{
   const title=dish.querySelector("h3")?.textContent.trim();
   const item=foodImages[title];
