@@ -151,7 +151,7 @@ const pricesMXN = {
 };
 const mxn = new Intl.NumberFormat("es-MX",{style:"currency",currency:"MXN",maximumFractionDigits:0});
 dishes.forEach(dish=>{
-  const title=dish.querySelector("h3")?.textContent.trim();
+  const title=dish.querySelector("h3")?.childNodes[0]?.textContent.trim();
   if(pricesMXN[title]===undefined) return;
   const price=document.createElement("span");
   price.className="price";
@@ -160,7 +160,7 @@ dishes.forEach(dish=>{
 });
 
 dishes.forEach(dish=>{
-  const title=dish.querySelector("h3")?.textContent.trim();
+  const title=dish.querySelector("h3")?.childNodes[0]?.textContent.trim();
   const item=foodImages[title];
   if(!item) return;
   const img=document.createElement("img");
