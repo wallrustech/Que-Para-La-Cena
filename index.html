@@ -43,7 +43,7 @@ footer{padding:22px 7%;display:flex;justify-content:space-between;gap:12px;flex-
     <div class="section-head">
       <div class="eyebrow">Hecho para disfrutar</div>
       <h2>Algo delicioso te espera.</h2>
-      <p>Nuestro menú reúne clásicos reconfortantes y favoritos de la casa. <strong>Todos los precios están en pesos mexicanos (MXN).</strong></p>
+      <p>Nuestro menú reúne clásicos reconfortantes y favoritos de la casa.</p>
     </div>
     <div class="menu-tabs" role="tablist" aria-label="Secciones del menú">
       <button class="tab active" data-filter="breakfast" role="tab" aria-selected="true">Desayuno</button>
@@ -155,7 +155,7 @@ dishes.forEach(dish=>{
   if(pricesMXN[title]===undefined) return;
   const price=document.createElement("span");
   price.className="price";
-  price.textContent="$"+mxn.format(pricesMXN[title])+" MXN";
+  price.textContent=mxn.format(pricesMXN[title])+" MXN";
   dish.querySelector("h3").appendChild(price);
 });
 
