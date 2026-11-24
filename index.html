@@ -155,7 +155,7 @@ dishes.forEach(dish=>{
   if(pricesMXN[title]===undefined) return;
   const price=document.createElement("span");
   price.className="price";
-  price.textContent=mxn.format(pricesMXN[title])+" MXN";
+  price.textContent=mxn.format(pricesMXN[title])+" $MEX";
   dish.querySelector("h3").appendChild(price);
 });
 
